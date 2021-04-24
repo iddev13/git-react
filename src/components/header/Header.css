@@ -1,0 +1,91 @@
+.header {
+	width: 100%;
+	background-color: #333;
+	border-bottom: 1px solid #fff;
+}
+
+.header__inner {
+	height: 70px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header__logo {
+}
+
+.header__logo a {
+	display: inline-block;
+	position: relative;
+	width: 50px;
+	height: 50px;
+}
+
+.header__nav {
+	align-items: center;
+}
+
+.header__list {
+	align-items: center;
+}
+
+.header__list li {
+	margin-right: 20px;
+}
+
+.header__list li:last-child {
+	margin-right: 0;
+}
+
+.header__list a {
+	position: relative;
+	color: #fff;
+	font-size: 18px;
+	transition: all 0.3s ease;
+	padding: 5px;
+	text-transform: capitalize;
+}
+.header__list a::after {
+	content: "";
+	display: block;
+	width: 0;
+	opacity: 0;
+	height: 1px;
+	background: rgba(255, 255, 255, 0.596);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	transition: all 0.3s ease;
+}
+
+.header__list a:hover {
+	color: rgba(255, 255, 255, 0.596);
+}
+.header__list a:hover::after {
+	width: 100%;
+	opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.header__logo img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		object-fit: contain;
+		font-family: "object-fit: contain;";
+		animation: App-logo-spin infinite 20s linear;
+	}
+}
+
+@keyframes App-logo-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
