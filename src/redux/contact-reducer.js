@@ -10,21 +10,26 @@ let initialState = {
 		{ message: 'message4' },
 		{ message: 'message5' },
 	],
-	newContactText: '11'
+	newContactText: ''
 }
 
 const contactReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case UPDATE_CONTACT:
-			state.newContactText = action.body;
-			return state;
-		case ADD_CONTACT:
+		case UPDATE_CONTACT: {
+			let stateCopy = { ...state };
+			stateCopy.newContactText = action.body;
+			return stateCopy;
+		}
+		case ADD_CONTACT: {
 			let newText = {
 				message: state.newContactText
 			};
-			state.contacts.push(newText);
-			state.newContactText = '';
-			return state;
+			let stateCopy = { ...state };
+			stateCopy.contacts = [...state.contacts];
+			stateCopy.contacts.push(newText);
+			stateCopy.newContactText = '';
+			return stateCopy;
+		}
 		default:
 			return state;
 	}
