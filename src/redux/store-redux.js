@@ -1,9 +1,11 @@
 import { combineReducers, createStore } from "redux";
 import contactReducer from "./contact-reducer";
+import postReducer from "./post-reducer";
 
 
 let reducers = combineReducers({
-	contact: contactReducer
+	contact: contactReducer,
+	post: postReducer
 });
 
 let store = createStore(reducers);

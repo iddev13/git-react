@@ -1,6 +1,7 @@
 
 import { Route } from 'react-router';
 import ContactContainer from '../pages/contact/ContactContainer';
+import PostContainer from '../pages/post/PostContainer';
 import './Main.css';
 
 const Main = (props) => {
@@ -16,6 +17,7 @@ const Main = (props) => {
 					Learn React
         			</a>
 				<Route path="/contact" render={() => <ContactContainer />} />
+				<Route path="/post" render={() => <PostContainer />} />
 			</div>
 		</main>
 	)

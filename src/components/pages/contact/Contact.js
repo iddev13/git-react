@@ -10,34 +10,31 @@ const Contact = (props) => {
 	const onUpdateContactMessage = (event) => {
 		let value = event.target.value;
 		props.updateContactMessage(value);
-		console.log(props);
 	}
 
 	const onAddContactMessage = () => {
 		props.addContactMessage();
-		console.log(props);
 	}
 
 	return (
 		<div className="contact">
-			<div className="contact__item">
-				<h2>contact</h2>
-			</div>
-			<div className="contact__item">
-				<ul>{contactPosts}</ul>
-			</div>
-			<div className="contact__item">
-				<textarea
-					onChange={onUpdateContactMessage}
-					cols="30"
-					rows="5"
-					placeholder="Enter some text"
-					value={props.state.newContactText}
-				/>
-			</div>
-			<div className="contact__item">
-				<button onClick={onAddContactMessage}>Push</button>
-			</div>
+			<h2>contact</h2>
+				<div className="contact__item-wrapper">
+					<div className="contact__item">
+						<ul>{contactPosts}</ul>
+					</div>
+					<div className="contact__item">
+						<textarea
+							onChange={onUpdateContactMessage}
+							placeholder="Enter some text"
+							value={props.state.newContactText}
+						/>
+					</div>
+					<div className="contact__item">
+						<button onClick={onAddContactMessage}>Push</button>
+					</div>
+				</div>
+			
 		</div>
 	)
 }
