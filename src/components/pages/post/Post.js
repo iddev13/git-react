@@ -29,7 +29,7 @@ const Post = (props) => {
 						onChange={onPostUpdate}
 						type="text"
 						placeholder="Enter text"
-						value={props.state.newPostText}
+						value={props.newPostText}
 					/>
 				</div>
 				<div className="post__item">

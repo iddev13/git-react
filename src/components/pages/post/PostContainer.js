@@ -4,7 +4,8 @@ import Post from "./Post";
 
 let mapStateToProps = (state) => {
 	return {
-		state: state.post
+		state: state.post,
+		newPostText: state.post.newPostText
 	}
 }
 
