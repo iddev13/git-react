@@ -3,6 +3,7 @@ import { Route } from 'react-router';
 import AboutContainer from '../pages/about/AboutContainer';
 import ContactContainer from '../pages/contact/ContactContainer';
 import PostContainer from '../pages/post/PostContainer';
+import UsersContainer from '../pages/users/UsersContainer';
 import './Main.css';
 
 const Main = (props) => {
@@ -18,6 +19,7 @@ const Main = (props) => {
 					Learn React
         			</a>
 				<Route path="/about" render={() => <AboutContainer />} />
+				<Route path="/users" render={() => <UsersContainer />} />
 				<Route path="/post" render={() => <PostContainer />} />
 				<Route path="/contact" render={() => <ContactContainer />} />
 			</div>

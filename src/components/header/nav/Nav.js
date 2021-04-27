@@ -5,6 +5,7 @@ const Nav = () => {
 	let headerNav = [
 		{ address: '/', name: 'home' },
 		{ address: '/about', name: 'about' },
+		{ address: '/users', name: 'users' },
 		{ address: '/portfolio', name: 'portfolio' },
 		{ address: '/post', name: 'post' },
 		{ address: '/contact', name: 'contact' },
