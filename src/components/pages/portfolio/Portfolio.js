@@ -1,18 +1,38 @@
-import './Portfolio.css';
+
+import '../contact/Contact.css';
 
 const Portfolio = (props) => {
+
+	let portfPost = props.portfolio.portfolioPosts.map((elem) => {
+		return <li key={elem.id}>{elem.message}</li>
+	})
+
+	const onupdatePortfolio = (event) => {
+		let value = event.target.value;
+		props.updatePortfolio(value);
+	}
+
+	const onaddPortfolio = () => {
+		props.addPortfolio();
+	}
+
 	return (
-		<div className="portfolio">
+		<div className="contact">
 			<h2>Portfolio</h2>
-			<div className="portfolio__inner">
-				<div className="portfolio__item">
-					<ul></ul>
+			<div className="contact__item-wrapper">
+				<div className="contact__item">
+					<ul>{portfPost}</ul>
 				</div>
-				<div className="portfolio__item">
-					<textarea name="" id="" cols="30" rows="10"></textarea>
+				<div className="contact__item">
+					<textarea
+						onChange={onupdatePortfolio}
+						cols="30"
+						rows="10"
+						value={props.portfolio.newPortfolioText}
+					/>
 				</div>
-				<div className="portfolio__item">
-					<button>Push</button>
+				<div className="contact__item">
+					<button onClick={onaddPortfolio}>Push</button>
 				</div>
 			</div>
 		</div>
