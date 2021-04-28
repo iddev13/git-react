@@ -3,19 +3,14 @@ import './Post.css';
 
 const Post = (props) => {
 
-	let postPosts = props.state.posts.map((elem, index) => {
-		return <li key={index.toString()}>{elem.message}</li>
-	})
+	let postPosts = props.post.posts.map(elem => <li key={elem.id}>{elem.message}</li>)
 
 	const onPostUpdate = (event) => {
 		let value = event.target.value;
-		props.postUpdate(value);
+		props.updatePost(value);
 	}
 
-	const onPostAdd = () => {
-		props.postAdd();
-		console.log(postPosts);
-	}
+	const onPostAdd = () => props.addPost()
 
 	return (
 		<div className="post">
@@ -29,7 +24,7 @@ const Post = (props) => {
 						onChange={onPostUpdate}
 						type="text"
 						placeholder="Enter text"
-						value={props.newPostText}
+						value={props.post.newPostText}
 					/>
 				</div>
 				<div className="post__item">

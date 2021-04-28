@@ -24,13 +24,14 @@ const Friends = (props) => {
 							<div>
 								<img src={elem.photoUrl} alt="Avatar" />
 							</div>
-						</div>
-						<div>
-							{elem.followed
-								? <button onClick={() => { props.unfollow(elem.id) }}>unfollow</button>
-								: <button onClick={() => { props.follow(elem.id) }}>follow</button>}
+							<div>
+								{elem.followed
+									? <button onClick={() => { props.unfollow(elem.id) }}>unfollow</button>
+									: <button onClick={() => { props.follow(elem.id) }}>follow</button>}
 
+							</div>
 						</div>
+
 						<div className="users__rigth row">
 							<div className="users__info row">
 								<div>{elem.fullName}</div>
