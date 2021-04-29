@@ -6,6 +6,7 @@ import FriendsContainer from '../pages/friends/FriendsContainre';
 import PortfolioContainer from '../pages/portfolio/PortfolioContainer';
 import PostContainer from '../pages/post/PostContainer';
 import UsersContainer from '../pages/users/UsersContainer';
+import MessageContainer from '../pages/message/MessageContainer';
 import './Main.css';
 
 const Main = (props) => {
@@ -23,6 +24,7 @@ const Main = (props) => {
 				<Route path="/about" render={() => <AboutContainer />} />
 				<Route path="/users" render={() => <UsersContainer />} />
 				<Route path="/friends" render={() => <FriendsContainer />} />
+				<Route path="/message" render={() => <MessageContainer />} />
 				<Route path="/portfolio" render={() => <PortfolioContainer />} />
 				<Route path="/post" render={() => <PostContainer />} />
 				<Route path="/contact" render={() => <ContactContainer />} />

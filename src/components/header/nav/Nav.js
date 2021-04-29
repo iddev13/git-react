@@ -7,6 +7,7 @@ const Nav = () => {
 		{ address: '/about', name: 'about' },
 		{ address: '/users', name: 'users' },
 		{ address: '/friends', name: 'friends' },
+		{ address: '/message', name: 'message' },
 		{ address: '/portfolio', name: 'portfolio' },
 		{ address: '/post', name: 'post' },
 		{ address: '/contact', name: 'contact' },

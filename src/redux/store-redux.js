@@ -2,6 +2,7 @@ import { combineReducers, createStore } from "redux";
 import aboutReducer from "./about-reducer";
 import contactReducer from "./contact-reducer";
 import friendsReducer from "./friends-reducer";
+import messageReducer from "./message-reducer";
 import portfolioReducer from "./portfolio-reducer";
 import postReducer from "./post-reducer";
 import usersReducer from "./users-reducer";
@@ -13,7 +14,8 @@ let reducers = combineReducers({
 	about: aboutReducer,
 	usersPage: usersReducer,
 	portfolio: portfolioReducer,
-	friendsPage: friendsReducer
+	friendsPage: friendsReducer,
+	message: messageReducer
 });
 
 let store = createStore(reducers);
