@@ -19,7 +19,6 @@ const contactReducer = (state = initialState, action) => {
 				...state,
 				newContactText: action.body
 			};
-			// return stateCopy;
 		}
 		case ADD_CONTACT: {
 			let newText = {
@@ -30,11 +29,6 @@ const contactReducer = (state = initialState, action) => {
 				newContactText: '',
 				contacts: [...state.contacts, newText]
 			};
-
-			// stateCopy.contacts.push(newText);
-			// stateCopy.newContactText = '';
-			// console.log(stateCopy);
-			// return stateCopy;
 		}
 		default:
 			return state;

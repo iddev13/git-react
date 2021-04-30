@@ -1,21 +1,21 @@
 import { combineReducers, createStore } from "redux";
-import aboutReducer from "./about-reducer";
-import contactReducer from "./contact-reducer";
-import friendsReducer from "./friends-reducer";
-import messageReducer from "./message-reducer";
-import portfolioReducer from "./portfolio-reducer";
-import postReducer from "./post-reducer";
-import usersReducer from "./users-reducer";
+import contactReducer from './reducers/contact-reducer';
+import usersReducer from "./reducers/users-reducer";
+// import aboutReducer from "./about-reducer";
+// import friendsReducer from "./friends-reducer";
+// import messageReducer from "./message-reducer";
+// import portfolioReducer from "./portfolio-reducer";
+// import postReducer from "./post-reducer";
 
 
 let reducers = combineReducers({
 	contact: contactReducer,
-	post: postReducer,
-	about: aboutReducer,
 	usersPage: usersReducer,
-	portfolio: portfolioReducer,
-	friendsPage: friendsReducer,
-	message: messageReducer
+	// post: postReducer,
+	// about: aboutReducer,
+	// portfolio: portfolioReducer,
+	// friendsPage: friendsReducer,
+	// message: messageReducer
 });
 
 let store = createStore(reducers);
