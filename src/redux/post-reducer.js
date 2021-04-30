@@ -24,7 +24,7 @@ const postReducer = (state = initialState, action) => {
 			return {
 				...state,
 				newPostText: '',
-				posts: [...state.posts, newPosts]
+				posts: [...state.posts, newPosts],
 			}
 		default:
 			return state;

@@ -1,43 +1,40 @@
-
-import './About.css';
-
+import '../contact/Contact.css';
 
 const About = (props) => {
 
-	let aboutPost = props.state.about.map((elem) => {
+	let aboutMessage = props.about.about.map((elem) => {
 		return <li key={elem.id}>{elem.message}</li>
 	})
 
-	const onAboutChange = (event) => {
+	const onUpdateAbout = (event) => {
 		let value = event.target.value;
-		props.aboutChange(value);
+		props.updateAbout(value);
 	}
 
-	const onAboutClick = () => {
-		props.aboutClick();
+	const onAddAbout = () => {
+		props.addAbout();
+		console.log(props);
 	}
 
 	return (
-		<div className="about">
-			<h2>About</h2>
-			<div className="about__inner">
-				<div className="about__item">
-					<ul>{aboutPost}</ul>
+		<div className="contact">
+			<h2>ABOUT</h2>
+			<div className="contact__item-wrapper">
+				<div className="contact__item">
+					<ul>{aboutMessage}</ul>
 				</div>
-				<div className="about__item">
-					<input
-						onChange={onAboutChange}
-						type="text"
-						placeholder="Enter some text..."
-						value={props.state.newAboutText}
+				<div className="contact__item">
+					<textarea
+						onChange={onUpdateAbout}
+						placeholder="Enter some text"
+						value={props.about.newAboutText}
 					/>
 				</div>
-				<div className="about__item">
-					<button onClick={onAboutClick}>Push</button>
+				<div className="contact__item">
+					<button onClick={onAddAbout}>Push</button>
 				</div>
 			</div>
 		</div>
 	)
 }
-
 export default About;

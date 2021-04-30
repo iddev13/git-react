@@ -1,23 +1,23 @@
 import { connect } from "react-redux";
-import { onAboutChangeAC, onAboutClickAC } from "../../../redux/about-reducer";
+import { addAboutAC, updateAboutAC } from "../../../redux/about-reducer";
 import About from "./About";
-
 
 let mapStateToProps = (state) => {
 	return {
-		state: state.about
+		about: state.about
 	}
 }
-let mapDispatchToProps = (dispatch) => {
+let mapDispatchToprops = (dispatch) => {
 	return {
-		aboutChange: (value) => {
-			dispatch(onAboutChangeAC(value))
+		updateAbout: (value) => {
+			dispatch(updateAboutAC(value));
 		},
-		aboutClick: () => {
-			dispatch(onAboutClickAC());
+		addAbout: () => {
+			dispatch(addAboutAC());
 		}
 	}
 }
-const AboutContainer = connect(mapStateToProps, mapDispatchToProps)(About);
+
+const AboutContainer = connect(mapStateToProps, mapDispatchToprops)(About);
 
 export default AboutContainer;
