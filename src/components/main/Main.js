@@ -22,7 +22,7 @@ const Main = () => {
 				>
 					Learn React
         			</a>
-				<Route path="/" render={() => <HomeContainer />} />
+				<Route exact path="/" render={() => <HomeContainer />} />
 				<Route path="/about" render={() => <AboutContainer />} />
 				<Route path="/users" render={() => <UsersContainer />} />
 				<Route path="/friends" render={() => <FriendsContainer />} />

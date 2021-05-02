@@ -1,4 +1,5 @@
 import '../users/Users.css';
+import * as axios from 'axios';
 
 const Home = (props) => {
 
@@ -11,6 +12,13 @@ const Home = (props) => {
 				{ id: 4, photoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxLkbtTa0kfmKizxJgqECQLdlt_xq1R2jEQQ&usqp=CAU', followed: false, fullName: 'Oleg', status: 'I learn Vue', location: { country: 'Belarus', city: 'Minsk' } },
 			]
 		)
+	}
+
+	let weather = () => {
+		axios.get('https://api.openweathermap.org/data/2.5/weather?id=706483&appid=682b3670ffea0aaff671b1d302f91d4c')
+			.then(response => {
+				console.log(response.data);
+			})
 	}
 
 	return (
@@ -46,6 +54,7 @@ const Home = (props) => {
 					})
 				}
 			</div>
+			<button onClick={weather}>Push</button>
 		</div>
 	)
 }
