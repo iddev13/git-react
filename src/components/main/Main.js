@@ -7,9 +7,10 @@ import PortfolioContainer from '../pages/portfolio/PortfolioContainer';
 import PostContainer from '../pages/post/PostContainer';
 import UsersContainer from '../pages/users/UsersContainer';
 import MessageContainer from '../pages/message/MessageContainer';
+import HomeContainer from '../pages/home/HomeContainer';
 import './Main.css';
 
-const Main = (props) => {
+const Main = () => {
 	return (
 		<main className="main">
 			<div className="container">
@@ -21,6 +22,7 @@ const Main = (props) => {
 				>
 					Learn React
         			</a>
+				<Route path="/" render={() => <HomeContainer />} />
 				<Route path="/about" render={() => <AboutContainer />} />
 				<Route path="/users" render={() => <UsersContainer />} />
 				<Route path="/friends" render={() => <FriendsContainer />} />
