@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addContactMessageCreator, updateContactMessageCreator } from "../../../redux/contact-reducer";
+import { addContactMessageCreator, updateContactMessageCreator } from "../../../redux/reducers/contact-reducer";
 import Contact from "./Contact";
 
 let mapStateToProps = (state) => {

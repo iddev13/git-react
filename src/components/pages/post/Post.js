@@ -1,38 +1,44 @@
+import React from 'react';
+import '../contact/Contact.css';
 
-import './Post.css';
+class Post extends React.Component {
 
-const Post = (props) => {
-
-	let postPosts = props.post.posts.map(elem => <li key={elem.id}>{elem.message}</li>)
-
-	const onPostUpdate = (event) => {
+	onUpdatePost = (event) => {
 		let value = event.target.value;
-		props.updatePost(value);
+		this.props.updatePost(value);
 	}
 
-	const onPostAdd = () => props.addPost()
+	onAddPost = () => {
+		this.props.addPost();
+		console.log(this.props);
+	}
 
-	return (
-		<div className="post">
-			<h2>Post</h2>
-			<div className="post__inner">
-				<div className="post__item">
-					<ul>{postPosts}</ul>
-				</div>
-				<div className="post__item">
-					<input
-						onChange={onPostUpdate}
-						type="text"
-						placeholder="Enter text"
-						value={props.post.newPostText}
-					/>
-				</div>
-				<div className="post__item">
-					<button onClick={onPostAdd}>push</button>
+	render() {
+
+		let posts = this.props.post.posts.map((elem) => {
+			return <li key={elem.id}>{elem.message}</li>
+		})
+		return (
+			<div className="contact">
+				<h2>post</h2>
+				<div className="contact__item-wrapper">
+					<div className="contact__item">
+						<ul>{posts}</ul>
+					</div>
+					<div className="contact__item">
+						<textarea
+							onChange={this.onUpdatePost}
+							placeholder="Enter some text"
+							value={this.props.post.newPostText}
+						/>
+					</div>
+					<div className="contact__item">
+						<button onClick={this.onAddPost}>Push</button>
+					</div>
 				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 }
 
 export default Post;

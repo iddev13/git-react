@@ -9,7 +9,7 @@ let initialState = {
 		{ id: 4, message: 'message4' },
 		{ id: 5, message: 'message5' },
 	],
-	newPostText: ''
+	newPostText: 'aaa'
 }
 
 const postReducer = (state = initialState, action) => {
@@ -18,14 +18,14 @@ const postReducer = (state = initialState, action) => {
 			return {
 				...state,
 				newPostText: action.body
-			}
+			};
 		case ADD_POST:
-			let newPosts = { id: 6, message: state.newPostText }
+			let newPost = { id: 6, message: state.newPostText }
 			return {
 				...state,
 				newPostText: '',
-				posts: [...state.posts, newPosts],
-			}
+				posts: [...state.posts, newPost]
+			};
 		default:
 			return state;
 	}

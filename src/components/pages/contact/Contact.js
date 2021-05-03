@@ -1,41 +1,47 @@
-
+import React from 'react';
 import './Contact.css';
 
-const Contact = (props) => {
+class Contact extends React.Component {
 
-	let contactPosts = props.state.contacts.map((elem, index) => {
-		return <li key={index.toString()}>{elem.message}</li>
-	});
-
-	const onUpdateContactMessage = (event) => {
+	onUpdateContactMessage = (event) => {
 		let value = event.target.value;
-		props.updateContactMessage(value);
+		this.props.updateContactMessage(value);
 	}
 
-	const onAddContactMessage = () => {
-		props.addContactMessage();
+	onAddContactMessage = () => {
+		this.props.addContactMessage();
 	}
 
-	return (
-		<div className="contact">
-			<h2>contact</h2>
+	render() {
+
+		let contactPosts = this.props.state.contacts.map((elem, index) => {
+			return <li key={index.toString()}>{elem.message}</li>
+		});
+		return (
+			<div className="contact">
+				<h2>class contact</h2>
 				<div className="contact__item-wrapper">
 					<div className="contact__item">
 						<ul>{contactPosts}</ul>
 					</div>
 					<div className="contact__item">
 						<textarea
-							onChange={onUpdateContactMessage}
+							onChange={this.onUpdateContactMessage}
 							placeholder="Enter some text"
-							value={props.state.newContactText}
+							value={this.props.state.newContactText}
 						/>
 					</div>
 					<div className="contact__item">
-						<button onClick={onAddContactMessage}>Push</button>
+						<button
+							onClick={this.onAddContactMessage}
+						>
+							Push</button>
 					</div>
 				</div>
-			
-		</div>
-	)
+
+			</div>
+		)
+	}
 }
+
 export default Contact;

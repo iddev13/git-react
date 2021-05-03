@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { addPostAC, updatePostAC } from "../../../redux/post-reducer";
+import { addPostAC, updatePostAC } from "../../../redux/reducers/post-reducer";
 import Post from "./Post";
 
 let mapStateToProps = (state) => {
@@ -10,15 +10,15 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
 	return {
-		updatePost: (value) => {
-			dispatch(updatePostAC(value))
+		updatePost:(value) => {
+			dispatch(updatePostAC(value));
 		},
 		addPost: () => {
-			dispatch(addPostAC())
+			dispatch(addPostAC());
 		}
 	}
 }
 
-const PostContainer = connect(mapStateToProps, mapDispatchToProps)(Post)
+const PostContainer = connect(mapStateToProps, mapDispatchToProps)(Post);
 
 export default PostContainer;

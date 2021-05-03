@@ -1,13 +1,8 @@
 
 import { Route } from 'react-router';
-import AboutContainer from '../pages/about/AboutContainer';
 import ContactContainer from '../pages/contact/ContactContainer';
-import FriendsContainer from '../pages/friends/FriendsContainre';
-import PortfolioContainer from '../pages/portfolio/PortfolioContainer';
 import PostContainer from '../pages/post/PostContainer';
 import UsersContainer from '../pages/users/UsersContainer';
-import MessageContainer from '../pages/message/MessageContainer';
-import HomeContainer from '../pages/home/HomeContainer';
 import './Main.css';
 
 const Main = () => {
@@ -22,12 +17,8 @@ const Main = () => {
 				>
 					Learn React
         			</a>
-				<Route exact path="/" render={() => <HomeContainer />} />
-				<Route path="/about" render={() => <AboutContainer />} />
+				{/* <Route exact path="/" render={() => <HomeContainer />} /> */}
 				<Route path="/users" render={() => <UsersContainer />} />
-				<Route path="/friends" render={() => <FriendsContainer />} />
-				<Route path="/message" render={() => <MessageContainer />} />
-				<Route path="/portfolio" render={() => <PortfolioContainer />} />
 				<Route path="/post" render={() => <PostContainer />} />
 				<Route path="/contact" render={() => <ContactContainer />} />
 			</div>
