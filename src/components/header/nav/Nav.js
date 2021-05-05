@@ -4,6 +4,7 @@ const Nav = () => {
 
 	let headerNav = [
 		{ address: '/', name: 'home' },
+		{ address: '/weather', name: 'weather' },
 		{ address: '/about', name: 'about' },
 		{ address: '/users', name: 'users' },
 		{ address: '/message', name: 'message' },
