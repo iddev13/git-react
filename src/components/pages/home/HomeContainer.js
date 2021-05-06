@@ -1,21 +1,27 @@
 import { connect } from "react-redux";
-import { followHomeAC, setHomeUsersAC, unfollowHomeAC } from "../../../redux/home-reducer";
+import { homeFollowAC, homeUnfollowAC, setHomeUsersAC } from "../../../redux/reducers/home-reducer";
 import Home from "./Home";
 
-let mapStateToProps = (state) => {
+let mapStateYoProps = (state) => {
 	return {
-		home: state.home.homeUsers
+		home: state.homePage.homeUsers
 	}
 }
 
 let mapDispatchToProps = (dispatch) => {
 	return {
-		homeFollow: usersId => dispatch(followHomeAC(usersId)),
-		homeUnfollow: usersId => dispatch(unfollowHomeAC(usersId)),
-		setHomeUsers: users => dispatch(setHomeUsersAC(users))
+		follow: (homeUserId) => {
+			dispatch(homeFollowAC(homeUserId));
+		},
+		unfollow: (homeUserId) => {
+			dispatch(homeUnfollowAC(homeUserId));
+		},
+		setHomeUsers: (homeUsers) => {
+			dispatch(setHomeUsersAC(homeUsers));
+		}
 	}
 }
 
-const HomeContainer = connect(mapStateToProps, mapDispatchToProps)(Home);
+const HomeContainer = connect(mapStateYoProps, mapDispatchToProps)(Home);
 
 export default HomeContainer;

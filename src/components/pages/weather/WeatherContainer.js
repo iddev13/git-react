@@ -4,7 +4,7 @@ import Weather from "./Weather";
 
 let mapStateToProps = (state) => {
 	return {
-		weather: state.weather.weather
+		weather: state.weatherPage.weather
 	}
 }
 
