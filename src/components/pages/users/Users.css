@@ -11,6 +11,11 @@
 	margin-bottom: 5px;
 }
 
+.users span {
+	cursor: pointer;
+	margin-right: 5px;
+}
+
 .users__item {
 	margin-bottom: 10px;
 	padding: 15px 30px;
@@ -55,4 +60,15 @@
 .users__info {
 	flex-direction: column;
 	justify-content: space-between;
+}
+
+.selectet-page {
+	font-weight: 700;
+}
+
+.users__nav {
+	font-size: 12px;
+	margin: 0px 0px 20px 0px;
+	display: flex;
+	flex-wrap: wrap;
 }

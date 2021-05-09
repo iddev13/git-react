@@ -1,6 +1,7 @@
 
 import { Route } from 'react-router';
 import HomeContainer from '../pages/home/HomeContainer';
+import PostContainer from '../pages/post/PostContainer';
 import UsersContainer from '../pages/users/UsersContainer';
 import WeatherContainer from '../pages/weather/WeatherContainer';
 import './Main.css';
@@ -20,6 +21,7 @@ const Main = () => {
 				<Route exact path="/" render={() => <HomeContainer />} />
 				<Route path="/weather" render={() => <WeatherContainer />} />
 				<Route path="/users" render={() => <UsersContainer />} />
+				<Route path="/post" render={() =>  <PostContainer /> } />
 			</div>
 		</main>
 	)
