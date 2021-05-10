@@ -1,6 +1,8 @@
 
 import { Route } from 'react-router';
+import AboutContainer from '../pages/about/AboutContainer';
 import HomeContainer from '../pages/home/HomeContainer';
+import PortfolioContainer from '../pages/portfilio/PortfolioContainer';
 import PostContainer from '../pages/post/PostContainer';
 import UsersContainer from '../pages/users/UsersContainer';
 import WeatherContainer from '../pages/weather/WeatherContainer';
@@ -19,9 +21,11 @@ const Main = () => {
 					Learn React
         			</a>
 				<Route exact path="/" render={() => <HomeContainer />} />
+				<Route path="/about" render={() => <AboutContainer />} />
 				<Route path="/weather" render={() => <WeatherContainer />} />
 				<Route path="/users" render={() => <UsersContainer />} />
-				<Route path="/post" render={() =>  <PostContainer /> } />
+				<Route path="/portfolio" render={() => <PortfolioContainer />} />
+				<Route path="/post" render={() => <PostContainer />} />
 			</div>
 		</main>
 	)

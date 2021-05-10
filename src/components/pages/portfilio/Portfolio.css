@@ -1,0 +1,88 @@
+
+.portfolio h2 {
+	font-size: 27px;
+	margin: 0px 0px 20px 0px;
+}
+
+.portfolio__items {
+	display: flex;
+	flex-direction: column;
+}
+
+.portfolio__item {
+	display: flex;
+}
+
+.portfolio__item-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex: 0 0 100px;
+	padding: 3px;
+}
+
+.left-item__image {
+	width: 70px;
+	height: 70px;
+	position: relative;
+}
+
+.left-item__image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	object-fit: contain;
+	border-radius: 50%;
+}
+
+.portfolio__item-right {
+	flex: 1 1 auto;
+	align-items: center;
+	text-align: left;
+	padding: 3px;
+}
+
+.left-item button {
+	padding: 5px 10px;
+	border: 1px solid #fff;
+	background-color: transparent;
+	border-radius: 40px;
+	color: #fff;
+	transition: all 0.2s ease;
+}
+
+.left-item button:hover {
+	background-color: #fff;
+	color: #000;
+}
+
+.right-item__elem {
+	margin: 0px 0px 10px 0px;
+	font-size: 18px;
+}
+
+.portfolio-nav {
+	display: flex;
+	flex-wrap: wrap;
+	line-height: 1.3;
+}
+
+.portfolio-nav span {
+	margin-right: 3px;
+	font-size: 10px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.portfolio-nav span:hover {
+	color: lightgreen;
+}
+
+.selectet-page {
+	font-weight: 700;
+}
