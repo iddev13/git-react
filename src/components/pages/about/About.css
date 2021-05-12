@@ -1,0 +1,29 @@
+.about {
+}
+
+.about__item {
+	margin: 0px 0px 10px 0px;
+}
+
+.about input,
+textarea {
+	padding: 7px;
+	border-radius: 10px;
+	border: 1px solid rgba(51, 255, 0, 0.466);
+	width: 300px;
+}
+
+.about input {
+}
+.about textarea {
+	height: 70px;
+	resize: vertical;
+}
+
+.about button {
+	padding: 7px 15px;
+	background: rgb(170, 170, 170);
+	border-radius: 30px;
+	font-size: 17px;
+	font-weight: 700;
+}

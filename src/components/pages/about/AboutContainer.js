@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { aboutAddAC, aboutUpdateAC } from "../../../redux/reducers/about-reducer";
+import { aboutAddAC, aboutUpdateAC, aboutUpdateTextareaAC } from "../../../redux/reducers/about-reducer";
 import About from "./About";
 
 let mapStateToProps = (state) => {
@@ -15,6 +15,9 @@ let mapDispatchToProps = (dispatch) => {
 		},
 		add: () => {
 			dispatch(aboutAddAC());
+		},
+		updateTextarea: (value) => {
+			dispatch(aboutUpdateTextareaAC(value));
 		}
 	}
 }

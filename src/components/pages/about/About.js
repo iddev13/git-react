@@ -8,31 +8,41 @@ class About extends React.Component {
 		this.props.update(value)
 	}
 
+	onUpdateTextareaText = (event) => {
+		let value = event.target.value;
+		this.props.updateTextarea(value)
+	}
+
 	onAddText = () => {
 		this.props.add()
 	}
 
 	render() {
 
-		let aboutPosts = this.props.about.aboutPosts.map((elem) => <li key={elem.id}>{elem.message}</li>
+		let aboutPosts = this.props.about.aboutPosts.map((elem) => <li key={elem.id}>{elem.message} - {elem.textarea}</li>
 		)
 
 		return (
-			<div>
-				<div>{console.log(this.props)}</div>
+			<div className="about">
+				<div className="about__item">{console.log(this.props)}</div>
 				<h2>About</h2>
-				<div>
+				<div className="about__item">
 					<ul>
 						{aboutPosts}
 					</ul>
 				</div>
-				<div>
+				<div className="about__item">
 					<input
 						onChange={this.onUpdateText}
 						type="text"
 						value={this.props.about.aboutText} />
 				</div>
-				<div>
+				<div className="about__item">
+					<textarea
+						onChange={this.onUpdateTextareaText}
+						placeholder="Enter some text..." />
+				</div>
+				<div className="about__item">
 					<button onClick={this.onAddText}>Push</button>
 				</div>
 			</div>
