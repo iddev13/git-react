@@ -2,7 +2,6 @@
 import { Route } from 'react-router';
 import AboutContainer from '../pages/about/AboutContainer';
 import PortfolioContainer from '../pages/portfilio/PortfolioContainer';
-import PostContainer from '../pages/post/PostContainer';
 import UsersContainer from '../pages/users/UsersContainer';
 import WeatherContainer from '../pages/weather/WeatherContainer';
 import ProfileContainer from '../pages/profile/ProfileContainer';
@@ -21,13 +20,14 @@ const Main = () => {
 					Learn React
         			</a>
 				<Route path="/about" render={() => <AboutContainer />} />
-				<Route path="/profile" render={() => <ProfileContainer />} />
+				<Route path="/profile/:userId?" render={() => <ProfileContainer />} />
 				<Route path="/weather" render={() => <WeatherContainer />} />
 				<Route path="/users" render={() => <UsersContainer />} />
 				<Route path="/portfolio" render={() => <PortfolioContainer />} />
-				<Route path="/post" render={() => <PostContainer />} />
 			</div>
 		</main>
 	)
 }
 export default Main;
+
+// ? - делает параметр :userId необязательным
