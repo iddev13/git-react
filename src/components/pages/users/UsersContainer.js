@@ -60,17 +60,6 @@ let mapStateToProps = (state) => {
 	}
 }
 
-// let mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		follow,
-// 		unfollow,
-// 		setUsers,
-// 		setCurrentPage,
-// 		setTotalUsersCount,
-// 		toggleIsFetching
-// 	}
-// }
-
 const UsersContainer = connect(mapStateToProps,
 	{
 		follow,

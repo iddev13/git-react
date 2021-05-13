@@ -32,7 +32,7 @@ class PortfolioApiComponent extends React.Component {
 					follow={this.props.follow}
 					currentPage={this.props.currentPage}
 					pageSize={this.props.pageSize}
-					onPageChanged={this.onPageChanged}
+					onPageChanged={this.onPageChanged} 
 				/>
 			</>
 

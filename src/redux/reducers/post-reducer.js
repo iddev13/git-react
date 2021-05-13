@@ -1,9 +1,16 @@
 const FOLLOW_POST = 'FOLLOW_POST';
 const UNFOLLOW_POST = 'UNFOLLOW_POST';
 const SET_POST = 'SET_POST';
+const SET_CURRENT_PAGE = 'SET-SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'SET-SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 
 let initialState = {
 	posts: [],
+	pageSize: 10,
+	totalPostCount: 0,
+	currentPage: 1,
+	isFetching: false
 }
 
 const postReducer = (state = initialState, action) => {
@@ -33,6 +40,21 @@ const postReducer = (state = initialState, action) => {
 				...state,
 				posts: [...action.posts]
 			}
+		case SET_CURRENT_PAGE:
+			return {
+				...state,
+				currentPage: action.currentPage
+			}
+		case SET_TOTAL_USERS_COUNT:
+			return {
+				...state,
+				totalPostCount: action.totalPostCount
+			}
+		case TOGGLE_IS_FETCHING:
+			return {
+				...state,
+				isFetching: action.isFetching
+			}
 		default:
 			return state;
 	}
@@ -56,6 +78,27 @@ export const setPostAC = (posts) => {
 	return {
 		type: SET_POST,
 		posts
+	}
+}
+
+export const setCurrentPageAC = (currentPage) => {
+	return {
+		type: SET_CURRENT_PAGE,
+		currentPage
+	}
+}
+
+export const totalPostCountAC = (totalPostCount) => {
+	return {
+		type: SET_TOTAL_USERS_COUNT,
+		totalPostCount
+	}
+}
+
+export const toggleIsFetchingPostAC = (isFetching) => {
+	return {
+		type: TOGGLE_IS_FETCHING,
+		isFetching
 	}
 }
 

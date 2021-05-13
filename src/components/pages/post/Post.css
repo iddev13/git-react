@@ -34,3 +34,19 @@
 	object-fit: contain;
 	font-family: "object-fit: contain;";
 }
+
+.post-nav {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px 0px 10px 0px;
+}
+
+.post span {
+	margin: 0px 4px 4px 0px;
+	cursor: pointer;
+}
+
+.selected-post-page {
+	color: rgb(77, 202, 5);
+	font-weight: 700;
+}
