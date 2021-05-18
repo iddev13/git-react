@@ -1,5 +1,7 @@
 import { combineReducers, createStore } from "redux";
 import aboutReducer from "./reducers/about-reducer";
+import authReducer from "./reducers/auth-reducer";
+import contactReducer from "./reducers/contact-reducer";
 import portfolioReducer from "./reducers/portfolio-reducer";
 import postReducer from "./reducers/post-reducer";
 import profileReducer from "./reducers/profile-reducer";
@@ -13,7 +15,9 @@ let reducers = combineReducers({
 	postPage: postReducer,
 	about: aboutReducer,
 	portfolio: portfolioReducer,
-	profilePage: profileReducer
+	profilePage: profileReducer,
+	contactPage: contactReducer,
+	auth: authReducer
 });
 
 let store = createStore(reducers);

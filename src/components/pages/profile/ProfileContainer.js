@@ -34,10 +34,10 @@ let mapStateToProps = (state) => {
 	}
 }
 
-let WithUrlDataContainerComponrnt = withRouter(ProfileAPIComponent)
+let WithUrlDataContainerComponent = withRouter(ProfileAPIComponent)
 
 const ProfileContainer = connect(mapStateToProps, {
 	setUserProfile
-})(WithUrlDataContainerComponrnt);
+})(WithUrlDataContainerComponent);
 
 export default ProfileContainer;

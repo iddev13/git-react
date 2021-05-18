@@ -2,6 +2,7 @@
 import logo from './logo.svg';
 import './Header.css';
 import Nav from './nav/Nav';
+import { NavLink } from 'react-router-dom';
 
 const Header = () => {
 	return (
@@ -14,6 +15,9 @@ const Header = () => {
 						</a>
 					</div>
 					<Nav />
+					<div className="loginBlock">
+						<NavLink to="/login">Login</NavLink>
+					</div>
 				</div>
 			</div>
 		</header>

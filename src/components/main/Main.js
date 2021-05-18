@@ -6,6 +6,8 @@ import UsersContainer from '../pages/users/UsersContainer';
 import WeatherContainer from '../pages/weather/WeatherContainer';
 import ProfileContainer from '../pages/profile/ProfileContainer';
 import './Main.css';
+import PostContainer from '../pages/post/PostContainer';
+import ContactContainer from '../pages/contact/ContactContainer';
 
 const Main = () => {
 	return (
@@ -24,10 +26,14 @@ const Main = () => {
 				<Route path="/weather" render={() => <WeatherContainer />} />
 				<Route path="/users" render={() => <UsersContainer />} />
 				<Route path="/portfolio" render={() => <PortfolioContainer />} />
+				<Route path="/post" render={() => <PostContainer />} />
+				<Route path="/contact" render={() => <ContactContainer />} />
 			</div>
 		</main>
 	)
 }
 export default Main;
 
+
+// :userId - params
 // ? - делает параметр :userId необязательным
