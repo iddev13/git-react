@@ -8,6 +8,7 @@ import ProfileContainer from '../pages/profile/ProfileContainer';
 import './Main.css';
 import PostContainer from '../pages/post/PostContainer';
 import ContactContainer from '../pages/contact/ContactContainer';
+import HomeContainer from '../pages/home/HomeContainer';
 
 const Main = () => {
 	return (
@@ -21,6 +22,7 @@ const Main = () => {
 				>
 					Learn React
         			</a>
+				<Route exact path="/" render={() => <HomeContainer />} />
 				<Route path="/about" render={() => <AboutContainer />} />
 				<Route path="/profile/:userId?" render={() => <ProfileContainer />} />
 				<Route path="/weather" render={() => <WeatherContainer />} />

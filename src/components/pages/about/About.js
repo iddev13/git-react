@@ -19,8 +19,7 @@ class About extends React.Component {
 
 	render() {
 
-		let aboutPosts = this.props.about.aboutPosts.map((elem) => <li key={elem.id}>{elem.message} - {elem.textarea}</li>
-		)
+		let aboutPosts = this.props.about.aboutPosts.map((elem) => <li key={elem.id}>{elem.message} - {elem.textarea}</li>)
 
 		return (
 			<div className="about">
