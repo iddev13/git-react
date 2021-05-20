@@ -2,30 +2,28 @@ import React from 'react';
 import { connect } from "react-redux";
 import { postFollowAC, postUnfollowAC, setPostUsersAC, setPostCurrentPageAC, setPostTotalUsersCountAC, postToggleIsFetchingAC } from "../../../redux/reducers/post-reducer";
 import Post from "./Post";
-import * as axios from 'axios';
 import Preloader from '../../common/preloader/Preloader';
+import { getUsers, getUsers2 } from '../../../api/api';
 
 class PostApiContainer extends React.Component {
 
 	componentDidMount() {
 		this.props.toggleIsFetching(true)
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-			.then(response => {
-				console.log(response.data);
-				this.props.toggleIsFetching(false)
-				this.props.setPostUsers(response.data.items)
-				this.props.setPostTotalUsersCount(response.data.totalCount)
-			})
+		getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+			console.log(data);
+			this.props.toggleIsFetching(false)
+			this.props.setPostUsers(data.items)
+			this.props.setPostTotalUsersCount(data.totalCount)
+		})
 	}
 
 	onPostPageChange = (pageNumber) => {
 		this.props.setCurrentPage(pageNumber)
 		this.props.toggleIsFetching(true);
-		axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-			.then(response => {
-				this.props.toggleIsFetching(false)
-				this.props.setPostUsers(response.data.items)
-			})
+		getUsers2(pageNumber, this.props.pageSize).then(data => {
+			this.props.toggleIsFetching(false)
+			this.props.setPostUsers(data.items)
+		})
 	}
 
 	render() {
