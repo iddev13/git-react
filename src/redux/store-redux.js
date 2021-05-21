@@ -2,6 +2,7 @@ import { combineReducers, createStore } from "redux";
 import aboutReducer from "./reducers/about-reducer";
 import authReducer from "./reducers/auth-reducer";
 import contactReducer from "./reducers/contact-reducer";
+import homeReducer from "./reducers/home-reducer";
 import portfolioReducer from "./reducers/portfolio-reducer";
 import postReducer from "./reducers/post-reducer";
 import profileReducer from "./reducers/profile-reducer";
@@ -17,7 +18,8 @@ let reducers = combineReducers({
 	portfolio: portfolioReducer,
 	profilePage: profileReducer,
 	contactPage: contactReducer,
-	auth: authReducer
+	auth: authReducer,
+	homePage: homeReducer
 });
 
 let store = createStore(reducers);

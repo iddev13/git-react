@@ -1,0 +1,37 @@
+.home {
+}
+
+.home__inner {
+}
+
+.home__item {
+	display: flex;
+}
+
+.home-item-left {
+	flex: 0 0 100px;
+}
+
+.home__item-right {
+	flex: 1 1 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.item-left {
+}
+.home-profile-photo {
+	position: relative;
+	width: 70px;
+	height: 70px;
+}
+.home-profile-photo img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	object-fit: contain;
+}
