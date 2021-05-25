@@ -1,4 +1,4 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 import aboutReducer from "./reducers/about-reducer";
 import authReducer from "./reducers/auth-reducer";
 import contactReducer from "./reducers/contact-reducer";
@@ -8,6 +8,7 @@ import postReducer from "./reducers/post-reducer";
 import profileReducer from "./reducers/profile-reducer";
 import usersReducer from "./reducers/users-reducer";
 import weatherReducer from "./reducers/weather-reducer";
+import thunkMiddleware from "redux-thunk";
 
 
 let reducers = combineReducers({
@@ -22,7 +23,7 @@ let reducers = combineReducers({
 	homePage: homeReducer
 });
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 export default store;
 window.store = store;

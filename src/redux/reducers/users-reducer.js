@@ -1,11 +1,11 @@
+import { getUsers } from "../../api/api"
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
 const SET_CURRENT_PAGE = 'SET-SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET-SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
-
-
 
 let initialState = {
 	users: [],
@@ -74,7 +74,7 @@ export const follow = (userId) => {
 	}
 }
 
-export const unfollow= (userId) => {
+export const unfollow = (userId) => {
 	return {
 		type: UNFOLLOW,
 		userId
@@ -95,7 +95,7 @@ export const setCurrentPage = (currentPage) => {
 	}
 }
 
-export const setTotalUsersCount= (usersCount) => {
+export const setTotalUsersCount = (usersCount) => {
 	return {
 		type: SET_TOTAL_USERS_COUNT,
 		usersCount
@@ -106,6 +106,19 @@ export const toggleIsFetching = (isFetching) => {
 	return {
 		type: TOGGLE_IS_FETCHING,
 		isFetching
+	}
+}
+
+export const getUsersThunkCreator = (currentPage, pageSize) => {
+	return (dispatch) => {
+		dispatch(toggleIsFetching(true));
+		getUsers(currentPage, pageSize).then(data => {
+			// debugger;
+			dispatch(toggleIsFetching(false));
+			console.log(data);
+			dispatch(setUsers(data.items));
+			dispatch(setTotalUsersCount(data.totalCount));
+		});
 	}
 }
 

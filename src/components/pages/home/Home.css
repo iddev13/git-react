@@ -1,6 +1,18 @@
 .home {
 }
 
+.home__nav {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0px 0px 5px 0px;
+}
+
+.home__nav span {
+	font-size: 11px;
+	margin: 0px 2px 2px 0px;
+	cursor: pointer;
+}
+
 .home__inner {
 }
 
@@ -34,4 +46,10 @@
 	left: 0;
 	z-index: 1;
 	object-fit: contain;
+}
+
+.selected-page {
+	font-size: 16px;
+	color: greenyellow;
+	font-weight: 700;
 }

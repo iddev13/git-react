@@ -1,6 +1,9 @@
 const FOLLOW_HOME_USERS = 'FOLLOW_HOME_USERS';
 const UNFOLLOW_HOME_USERS = 'UNFOLLOW_HOME_USERS';
 const SET_HOME_USERS = 'SET_HOME_USERS';
+const SET_TOTAL_HOME_USERS_COUNT = 'SET_TOTAL_HOME_USERS_COUNT';
+const SET_HOM_CURRENT_PAGE = 'SET_HOM_CURRENT_PAGE';
+const TOGGLE_HOME_IS_FETCHING = 'TOGGLE_HOME_IS_FETCHING';
 
 let initialState = {
 	homeUsers: [],
@@ -27,6 +30,21 @@ const homeReducer = (state = initialState, action) => {
 				...state,
 				homeUsers: action.users
 			}
+		case SET_TOTAL_HOME_USERS_COUNT:
+			return {
+				...state,
+				totalHomeCount: action.totalUsersCount
+			}
+		case SET_HOM_CURRENT_PAGE:
+			return {
+				...state,
+				currentPage: action.currentPage
+			}
+		case TOGGLE_HOME_IS_FETCHING:
+			return {
+				...state,
+				isFetching: action.isFetching
+			}
 		default:
 			return state;
 	}
@@ -50,6 +68,27 @@ export const unfollowHome = (userId) => {
 	return {
 		type: UNFOLLOW_HOME_USERS,
 		userId
+	}
+}
+
+export const setTotalHomeUsersCount = (totalUsersCount) => {
+	return {
+		type: SET_TOTAL_HOME_USERS_COUNT,
+		totalUsersCount
+	}
+}
+
+export const setHomeCurrentPage = (currentPage) => {
+	return {
+		type: SET_HOM_CURRENT_PAGE,
+		currentPage
+	}
+}
+
+export const toggleHomeIsFetching = (isFetching) => {
+	return {
+		type: TOGGLE_HOME_IS_FETCHING,
+		isFetching
 	}
 }
 

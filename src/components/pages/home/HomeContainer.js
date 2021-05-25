@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUsers } from '../../../api/api';
+import { getUsers, getUsers2 } from '../../../api/api';
 import Home from './Home';
-import { setHomeUsers, followHome, unfollowHome } from '../../../redux/reducers/home-reducer';
+import {
+	setHomeUsers, followHome, unfollowHome, setTotalHomeUsersCount,
+	setHomeCurrentPage, toggleHomeIsFetching
+} from '../../../redux/reducers/home-reducer';
+import Preloader from '../../common/preloader/Preloader';
 
 const HomeApiFunction = (props) => {
 
@@ -10,9 +14,11 @@ const HomeApiFunction = (props) => {
 
 	useEffect(() => {
 
-
+		props.toggleHomeIsFetching(true)
 		getUsers(props.currentPage, props.pageSize).then(data => {
 			props.setHomeUsers(data.items)
+			props.setTotalHomeUsersCount(data.totalCount)
+			props.toggleHomeIsFetching(false)
 			console.log(data);
 		})
 		console.log('componentDidMount()');
@@ -24,11 +30,20 @@ const HomeApiFunction = (props) => {
 	}, [])
 
 	const onChangePage = (pageNumber) => {
+
+		props.toggleHomeIsFetching(true)
+		props.setHomeCurrentPage(pageNumber)
 		console.log(props);
+		getUsers2(pageNumber, props.pageSize).then(data => {
+			props.setHomeUsers(data.items);
+			props.toggleHomeIsFetching(false)
+		})
+
 	}
 
 	return (
 		<div>
+			{props.isFetching ? <Preloader /> : null}
 			<Home
 				homeUsers={props.homeUsers}
 				setHomeUsers={props.setHomeUsers}
@@ -58,6 +73,9 @@ const HomeContainer = connect(mapStateToProps, {
 	setHomeUsers,
 	followHome,
 	unfollowHome,
+	setTotalHomeUsersCount,
+	setHomeCurrentPage,
+	toggleHomeIsFetching
 })(HomeApiFunction);
 
 export default HomeContainer;
