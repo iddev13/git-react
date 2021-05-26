@@ -9,6 +9,7 @@ import './Main.css';
 import PostContainer from '../pages/post/PostContainer';
 import ContactContainer from '../pages/contact/ContactContainer';
 import HomeContainer from '../pages/home/HomeContainer';
+import Login from '../pages/login/Login';
 
 const Main = () => {
 	return (
@@ -30,6 +31,7 @@ const Main = () => {
 				<Route path="/portfolio" render={() => <PortfolioContainer />} />
 				<Route path="/post" render={() => <PostContainer />} />
 				<Route path="/contact" render={() => <ContactContainer />} />
+				<Route path="/login" render={() => <Login />} />
 			</div>
 		</main>
 	)

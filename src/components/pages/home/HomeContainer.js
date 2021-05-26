@@ -4,7 +4,7 @@ import { getUsers, getUsers2 } from '../../../api/api';
 import Home from './Home';
 import {
 	setHomeUsers, followHome, unfollowHome, setTotalHomeUsersCount,
-	setHomeCurrentPage, toggleHomeIsFetching
+	setHomeCurrentPage, toggleHomeIsFetching, getHomeUsersThunkCreator
 } from '../../../redux/reducers/home-reducer';
 import Preloader from '../../common/preloader/Preloader';
 
@@ -13,32 +13,18 @@ const HomeApiFunction = (props) => {
 	// const [users, setUsers] = useState(props.homeUsers)
 
 	useEffect(() => {
-
-		props.toggleHomeIsFetching(true)
-		getUsers(props.currentPage, props.pageSize).then(data => {
-			props.setHomeUsers(data.items)
-			props.setTotalHomeUsersCount(data.totalCount)
-			props.toggleHomeIsFetching(false)
-			console.log(data);
-		})
+		props.getHomeUsersThunkCreator(props.currentPage, props.pageSize)
 		console.log('componentDidMount()');
 
 		return () => {
 			console.log('componentWillUnmount()');
 		}
-
 	}, [])
 
 	const onChangePage = (pageNumber) => {
-
 		props.toggleHomeIsFetching(true)
 		props.setHomeCurrentPage(pageNumber)
-		console.log(props);
-		getUsers2(pageNumber, props.pageSize).then(data => {
-			props.setHomeUsers(data.items);
-			props.toggleHomeIsFetching(false)
-		})
-
+		props.getHomeUsersThunkCreator(pageNumber, props.pageSize)
 	}
 
 	return (
@@ -75,7 +61,8 @@ const HomeContainer = connect(mapStateToProps, {
 	unfollowHome,
 	setTotalHomeUsersCount,
 	setHomeCurrentPage,
-	toggleHomeIsFetching
+	toggleHomeIsFetching,
+	getHomeUsersThunkCreator,
 })(HomeApiFunction);
 
 export default HomeContainer;

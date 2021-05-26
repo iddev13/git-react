@@ -1,3 +1,5 @@
+import {getUsers} from '../../api/api'
+
 const FOLLOW_HOME_USERS = 'FOLLOW_HOME_USERS';
 const UNFOLLOW_HOME_USERS = 'UNFOLLOW_HOME_USERS';
 const SET_HOME_USERS = 'SET_HOME_USERS';
@@ -89,6 +91,18 @@ export const toggleHomeIsFetching = (isFetching) => {
 	return {
 		type: TOGGLE_HOME_IS_FETCHING,
 		isFetching
+	}
+}
+
+export const getHomeUsersThunkCreator = (currentPage, pageSize) => {
+	return (dispatch) => {
+		dispatch(toggleHomeIsFetching(true));
+		getUsers(currentPage, pageSize).then(data => {
+			dispatch(setHomeUsers(data.items))
+			dispatch(setTotalHomeUsersCount(data.totalCount))
+			dispatch(toggleHomeIsFetching(false))
+			console.log(data);
+		})
 	}
 }
 

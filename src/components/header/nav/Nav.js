@@ -12,6 +12,7 @@ const Nav = () => {
 		{ address: '/portfolio', name: 'portfolio' },
 		{ address: '/post', name: 'post' },
 		{ address: '/contact', name: 'contact' },
+		{ address: '/login', name: 'login' },
 	];
 
 	let headerLinks = headerNav.map((elem, index) => {
