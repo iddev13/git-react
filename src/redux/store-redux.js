@@ -9,6 +9,7 @@ import profileReducer from "./reducers/profile-reducer";
 import usersReducer from "./reducers/users-reducer";
 import weatherReducer from "./reducers/weather-reducer";
 import thunkMiddleware from "redux-thunk";
+import messageReducer from "./reducers/message-reducer";
 
 
 let reducers = combineReducers({
@@ -20,7 +21,8 @@ let reducers = combineReducers({
 	profilePage: profileReducer,
 	contactPage: contactReducer,
 	auth: authReducer,
-	homePage: homeReducer
+	homePage: homeReducer,
+	messagePage: messageReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

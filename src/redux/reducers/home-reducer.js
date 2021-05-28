@@ -1,4 +1,4 @@
-import {getUsers} from '../../api/api'
+import { getUsers } from '../../api/api'
 
 const FOLLOW_HOME_USERS = 'FOLLOW_HOME_USERS';
 const UNFOLLOW_HOME_USERS = 'UNFOLLOW_HOME_USERS';
@@ -20,12 +20,22 @@ const homeReducer = (state = initialState, action) => {
 		case FOLLOW_HOME_USERS:
 			return {
 				...state,
-
+				homeUsers: state.homeUsers.map((elem) => {
+					if (elem.id === action.userId) {
+						return { ...elem, followed: true }
+					}
+					return elem;
+				})
 			}
 		case UNFOLLOW_HOME_USERS:
 			return {
 				...state,
-
+				homeUsers: state.homeUsers.map((elem) => {
+					if (elem.id === action.userId) {
+						return { ...elem, followed: false }
+					}
+					return elem;
+				})
 			}
 		case SET_HOME_USERS:
 			return {

@@ -14,3 +14,8 @@ export const getUsers2 = (pageNumber, pageSize) => {
 		.then(response => response.data)
 }
 
+export const getMessageUsers = (currentPage, pageSize) => {
+	return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+		.then(response => response.data)
+}
+

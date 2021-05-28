@@ -10,6 +10,7 @@ import PostContainer from '../pages/post/PostContainer';
 import ContactContainer from '../pages/contact/ContactContainer';
 import HomeContainer from '../pages/home/HomeContainer';
 import Login from '../pages/login/Login';
+import MessageContainer from '../pages/message/MessageContainer';
 
 const Main = () => {
 	return (
@@ -28,6 +29,7 @@ const Main = () => {
 				<Route path="/profile/:userId?" render={() => <ProfileContainer />} />
 				<Route path="/weather" render={() => <WeatherContainer />} />
 				<Route path="/users" render={() => <UsersContainer />} />
+				<Route path="/message" render={() => <MessageContainer />} />
 				<Route path="/portfolio" render={() => <PortfolioContainer />} />
 				<Route path="/post" render={() => <PostContainer />} />
 				<Route path="/contact" render={() => <ContactContainer />} />

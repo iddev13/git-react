@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUsers, getUsers2 } from '../../../api/api';
 import Home from './Home';
 import {
 	setHomeUsers, followHome, unfollowHome, setTotalHomeUsersCount,
@@ -16,9 +15,9 @@ const HomeApiFunction = (props) => {
 		props.getHomeUsersThunkCreator(props.currentPage, props.pageSize)
 		console.log('componentDidMount()');
 
-		return () => {
-			console.log('componentWillUnmount()');
-		}
+		// return () => {
+		// 	console.log('componentWillUnmount()');
+		// }
 	}, [])
 
 	const onChangePage = (pageNumber) => {

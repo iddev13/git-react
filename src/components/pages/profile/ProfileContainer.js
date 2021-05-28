@@ -5,6 +5,7 @@ import Profile from "./Profile";
 import * as axios from 'axios';
 import { withRouter } from 'react-router';
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class ProfileAPIComponent extends React.Component {
 	componentDidMount() {
@@ -37,17 +38,16 @@ let mapStateToProps = (state) => {
 	}
 }
 
-// let AuthRedirectComponent = (props) => {
-// 	if (!props.isAuth) return <Redirect to={"/login"} />
-// 	return <ProfileAPIComponent {...props} />
-// }
+// let AuthRedirectComponent = withAuthRedirect(ProfileAPIComponent);
 
-let AuthRedirectComponent = withAuthRedirect(ProfileAPIComponent);
+// let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
 
-let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
+// const ProfileContainer = connect(mapStateToProps, {
+// 	setUserProfile
+// })(WithUrlDataContainerComponent);
 
-const ProfileContainer = connect(mapStateToProps, {
-	setUserProfile
-})(WithUrlDataContainerComponent);
-
-export default ProfileContainer;
+export default compose(
+	connect(mapStateToProps, { setUserProfile }),
+	withRouter,
+	withAuthRedirect
+)(ProfileAPIComponent);

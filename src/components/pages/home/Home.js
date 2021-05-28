@@ -40,8 +40,8 @@ const Home = (props) => {
 									</NavLink>
 								</div>
 								<div>{elem.followed
-									? <button>unfollow</button>
-									: <button>follow</button>
+									? <button onClick={() => { props.unfollowHome(elem.id) }}>unfollow</button>
+									: <button onClick={() => { props.followHome(elem.id) }}>follow</button>
 								}</div>
 							</div>
 							<div className="home__item-right item-right">
