@@ -1,58 +1,34 @@
-const UPDATE_INPUT = 'UPDATE_INPUT';
-const UPDATE_TEXAREA = 'UPDATE_TEXAREA';
+
 const ADD_INPUT = 'ADD_INPUT';
 
 let initialState = {
 	aboutPosts: [
-		{ id: 1, message: 'message aaa', textarea: 'text 1' },
-		{ id: 2, message: 'message bbb', textarea: 'text 2' },
-		{ id: 3, message: 'message ccc', textarea: 'text 3' },
-		{ id: 4, message: 'message ddd', textarea: 'text 4' }
+		{ id: 1, message: 'message aaa' },
+		{ id: 2, message: 'message bbb' },
+		{ id: 3, message: 'message ccc' },
+		{ id: 4, message: 'message ddd' }
 	],
-	aboutText: '',
-	aboutTextareaValue: ''
 }
 
 const aboutReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case UPDATE_INPUT:
-			return {
-				...state,
-				aboutText: action.value
-			}
 		case ADD_INPUT:
-			let newAboutPost = { id: 5, message: state.aboutText, textarea: state.aboutTextareaValue }
+			let newAboutPost = { id: 5, message: action.newAboutText }
 			return {
 				...state,
 				aboutText: '',
 				aboutPosts: [...state.aboutPosts, newAboutPost]
-			}
-		case UPDATE_TEXAREA:
-			return {
-				...state,
-				aboutTextareaValue: action.value
 			}
 		default:
 			return state;
 	}
 }
 
-export const aboutUpdateAC = (value) => {
-	return {
-		type: UPDATE_INPUT,
-		value
-	}
-}
-export const aboutUpdateTextareaAC = (value) => {
-	return {
-		type: UPDATE_TEXAREA,
-		value
-	}
-}
 
-export const aboutAddAC = () => {
+export const aboutAddAC = (newAboutText) => {
 	return {
-		type: ADD_INPUT
+		type: ADD_INPUT,
+		newAboutText
 	}
 }
 export default aboutReducer;

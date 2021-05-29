@@ -1,25 +1,50 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
+import { required, maxLengthCreator } from '../../../utils/validators/validators';
+import { Textarea } from '../../common/form-controls/FormControls';
 import './About.css';
+
+const maxSymbolLength = maxLengthCreator(10)
+
+const AboutForm = (props) => {
+
+	const propsCheck = () => {
+		console.log(props);
+	}
+
+	return (
+		<>
+			<form onSubmit={props.handleSubmit}>
+				<div className="about__item">
+					<Field
+						component={Textarea}
+						name="newAboutText"
+						type="text"
+						placeholder="About text"
+						validate={[required, maxSymbolLength]}
+					/>
+				</div>
+
+				<div className="about__item">
+					<button>Push</button>
+				</div>
+			</form>
+			<button onClick={propsCheck}>PushProps</button>
+		</>
+	)
+}
+
+const AboutReduxForm = reduxForm({ form: 'aboutForm' })(AboutForm)
 
 class About extends React.Component {
 
-	onUpdateText = (event) => {
-		let value = event.target.value;
-		this.props.update(value)
+	onAddText = (values) => {
+		this.props.add(values.newAboutText);
+		console.log(values);
 	}
-
-	onUpdateTextareaText = (event) => {
-		let value = event.target.value;
-		this.props.updateTextarea(value)
-	}
-
-	onAddText = () => {
-		this.props.add()
-	}
-
 	render() {
 
-		let aboutPosts = this.props.about.aboutPosts.map((elem) => <li key={elem.id}>{elem.message} - {elem.textarea}</li>)
+		let aboutPosts = this.props.about.aboutPosts.map((elem) => <li key={elem.id}>{elem.message}</li>)
 
 		return (
 			<div className="about">
@@ -30,23 +55,12 @@ class About extends React.Component {
 						{aboutPosts}
 					</ul>
 				</div>
-				<div className="about__item">
-					<input
-						onChange={this.onUpdateText}
-						type="text"
-						value={this.props.about.aboutText} />
-				</div>
-				<div className="about__item">
-					<textarea
-						onChange={this.onUpdateTextareaText}
-						placeholder="Enter some text..." />
-				</div>
-				<div className="about__item">
-					<button onClick={this.onAddText}>Push</button>
-				</div>
+				<AboutReduxForm {...this.props} onSubmit={this.onAddText} />
 			</div>
 		)
 	}
 }
+
+
 
 export default About;

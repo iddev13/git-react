@@ -10,6 +10,7 @@ import usersReducer from "./reducers/users-reducer";
 import weatherReducer from "./reducers/weather-reducer";
 import thunkMiddleware from "redux-thunk";
 import messageReducer from "./reducers/message-reducer";
+import { reducer as formReducer } from 'redux-form'
 
 
 let reducers = combineReducers({
@@ -22,7 +23,8 @@ let reducers = combineReducers({
 	contactPage: contactReducer,
 	auth: authReducer,
 	homePage: homeReducer,
-	messagePage: messageReducer
+	messagePage: messageReducer,
+	form: formReducer
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
