@@ -3,6 +3,7 @@ import Users from './Users';
 import { connect } from "react-redux";
 import { follow, setCurrentPage, unfollow, getUsersThunkCreator } from "../../../redux/reducers/users-reducer";
 import Preloader from '../../common/preloader/Preloader';
+import { getCurrentPage, getIsFetching, getPageSize, getTotalUsersCount, getUsers } from '../../../redux/selectors/user-selectors';
 
 class UsersAPIComponent extends React.Component {
 
@@ -35,13 +36,24 @@ class UsersAPIComponent extends React.Component {
 }
 
 
+// let mapStateToProps = (state) => {
+// 	return {
+// 		users: state.usersPage.users,
+// 		pageSize: state.usersPage.pageSize,
+// 		totalUsersCount: state.usersPage.totalUsersCount,
+// 		currentPage: state.usersPage.currentPage,
+// 		isFetching: state.usersPage.isFetching
+// 	}
+// }
+
+
 let mapStateToProps = (state) => {
 	return {
-		users: state.usersPage.users,
-		pageSize: state.usersPage.pageSize,
-		totalUsersCount: state.usersPage.totalUsersCount,
-		currentPage: state.usersPage.currentPage,
-		isFetching: state.usersPage.isFetching
+		users: getUsers(state),
+		pageSize: getPageSize(state),
+		totalUsersCount: getTotalUsersCount(state),
+		currentPage: getCurrentPage(state),
+		isFetching: getIsFetching(state)
 	}
 }
 

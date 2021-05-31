@@ -4,13 +4,13 @@ const Nav = () => {
 
 	let headerNav = [
 		{ address: '/', name: 'home' },
-		{ address: '/weather', name: 'weather' },
 		{ address: '/about', name: 'about' },
 		{ address: '/users', name: 'users' },
 		{ address: '/message', name: 'message' },
 		{ address: '/profile', name: 'profile' },
 		{ address: '/portfolio', name: 'portfolio' },
 		{ address: '/post', name: 'post' },
+		{ address: '/blog', name: 'blog' },
 		{ address: '/contact', name: 'contact' },
 		{ address: '/login', name: 'login' },
 	];

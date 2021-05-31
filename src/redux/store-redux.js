@@ -7,15 +7,15 @@ import portfolioReducer from "./reducers/portfolio-reducer";
 import postReducer from "./reducers/post-reducer";
 import profileReducer from "./reducers/profile-reducer";
 import usersReducer from "./reducers/users-reducer";
-import weatherReducer from "./reducers/weather-reducer";
 import thunkMiddleware from "redux-thunk";
 import messageReducer from "./reducers/message-reducer";
 import { reducer as formReducer } from 'redux-form'
+import blogReducer from "./reducers/blog-reducer";
+import appReducer from "./reducers/app-reducer";
 
 
 let reducers = combineReducers({
 	usersPage: usersReducer,
-	weatherPage: weatherReducer,
 	postPage: postReducer,
 	about: aboutReducer,
 	portfolio: portfolioReducer,
@@ -24,6 +24,8 @@ let reducers = combineReducers({
 	auth: authReducer,
 	homePage: homeReducer,
 	messagePage: messageReducer,
+	blogPage: blogReducer,
+	app: appReducer,
 	form: formReducer
 });
 

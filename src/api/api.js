@@ -19,3 +19,8 @@ export const getMessageUsers = (currentPage, pageSize) => {
 		.then(response => response.data)
 }
 
+export const getBlogUsers = (currentPage, pageSize) => {
+	return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+		.then(response => response.data)
+}
+

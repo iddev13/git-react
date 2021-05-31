@@ -64,6 +64,20 @@
 
 .selectet-page {
 	font-weight: 700;
+	color: greenyellow;
+	position: relative;
+}
+
+.selectet-page:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: greenyellow;
+	position: absolute;
+	bottom: 2px;
+	left: 0;
+	z-index: 1;
 }
 
 .users__nav {
