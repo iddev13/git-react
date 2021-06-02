@@ -11,6 +11,7 @@ const Nav = () => {
 		{ address: '/portfolio', name: 'portfolio' },
 		{ address: '/post', name: 'post' },
 		{ address: '/blog', name: 'blog' },
+		{ address: '/dialog', name: 'dialog' },
 		{ address: '/contact', name: 'contact' },
 		{ address: '/login', name: 'login' },
 	];

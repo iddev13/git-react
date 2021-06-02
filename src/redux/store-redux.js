@@ -12,6 +12,7 @@ import messageReducer from "./reducers/message-reducer";
 import { reducer as formReducer } from 'redux-form'
 import blogReducer from "./reducers/blog-reducer";
 import appReducer from "./reducers/app-reducer";
+import dialogReducer from "./reducers/dialog-reducer";
 
 
 let reducers = combineReducers({
@@ -26,6 +27,7 @@ let reducers = combineReducers({
 	messagePage: messageReducer,
 	blogPage: blogReducer,
 	app: appReducer,
+	dialogPage: dialogReducer,
 	form: formReducer
 });
 
