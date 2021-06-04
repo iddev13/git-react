@@ -12,7 +12,7 @@ let initialState = {
 const dialogReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case DIALOG_ADD:
-			let newDialogPost = { id: 5, message: action.newDialogPost }
+			let newDialogPost = { id: state.dialogPosts.length + 1, message: action.newMessage }
 			return {
 				...state,
 				dialogPosts: [...state.dialogPosts, newDialogPost]
