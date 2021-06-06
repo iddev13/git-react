@@ -1,5 +1,6 @@
 
 const ADD_INPUT = 'ADD_INPUT';
+const REMOVE_POST = 'REMOVE_POST';
 
 let initialState = {
 	aboutPosts: [
@@ -19,6 +20,11 @@ const aboutReducer = (state = initialState, action) => {
 				aboutText: '',
 				aboutPosts: [...state.aboutPosts, newAboutPost]
 			}
+		case REMOVE_POST:
+			return {
+				...state,
+				aboutPosts: state.aboutPosts.filter(elem => elem.id != action.userId)
+			}
 		default:
 			return state;
 	}
@@ -31,4 +37,12 @@ export const aboutAddAC = (newAboutText) => {
 		newAboutText
 	}
 }
+
+export const aboutRemoveAC = (userId) => {
+	return {
+		type: REMOVE_POST,
+		userId
+	}
+}
+
 export default aboutReducer;
