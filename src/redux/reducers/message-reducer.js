@@ -1,11 +1,11 @@
 import { getMessageUsers } from '../../api/api';
 
-const SET_MESSAGE_USERS = 'SET_MESSAGE_USERS';
-const MESSAGE_IS_FETCHING = 'MESSAGE_IS_FETCHING';
-const MESSAGE_FOLLOW = 'MESSAGE_FOLLOW';
-const MESSAGE_UNFOLLOW = 'MESSAGE_UNFOLLOW';
-const SET_TOTAL_MESSAGE_USERS_COUNT = 'SET_TOTAL_MESSAGE_USERS_COUNT';
-const SET_MESSAGE_CURRENT_PAGE = 'SET_MESSAGE_CURRENT_PAGE';
+const SET_MESSAGE_USERS = 'git_react/message/SET_MESSAGE_USERS';
+const MESSAGE_IS_FETCHING = 'git_react/message/MESSAGE_IS_FETCHING';
+const MESSAGE_FOLLOW = 'git_react/message/MESSAGE_FOLLOW';
+const MESSAGE_UNFOLLOW = 'git_react/message/MESSAGE_UNFOLLOW';
+const SET_TOTAL_MESSAGE_USERS_COUNT = 'git_react/message/SET_TOTAL_MESSAGE_USERS_COUNT';
+const SET_MESSAGE_CURRENT_PAGE = 'git_react/message/SET_MESSAGE_CURRENT_PAGE';
 
 let initialState = {
 	messageUsers: [],
@@ -106,13 +106,13 @@ export const setMessageCurrentPage = (currentPage) => {
 }
 
 export const getMessageUsersThunkCreator = (currentPage, pageSize) => {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(toggleMessageIsFetching(true));
-		getMessageUsers(currentPage, pageSize).then(data => {
-			dispatch(setMessageUsers(data.items))
-			dispatch(setTotalMessageUsersCount(data.totalCount))
-			dispatch(toggleMessageIsFetching(false))
-		})
+		let data = await getMessageUsers(currentPage, pageSize)
+		dispatch(setMessageUsers(data.items))
+		dispatch(setTotalMessageUsersCount(data.totalCount))
+		dispatch(toggleMessageIsFetching(false))
+
 	}
 }
 

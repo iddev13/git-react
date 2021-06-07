@@ -1,6 +1,6 @@
 
 
-const SET_USER_DATA = 'SET_USER_DATA';
+const SET_USER_DATA = 'git_react/auth/SET_USER_DATA';
 
 
 let initialState = {
@@ -43,7 +43,7 @@ export const setAuthUserData = (id, login, email, isAuth) => {
 	}
 }
 
-export const getAuthUserData = () => (dispatch) => {
+export const getAuthUserData = () => async (dispatch) => {
 	return authAPI.me()
 		.then(response => {
 			if (response.data.resultCode === 0) {

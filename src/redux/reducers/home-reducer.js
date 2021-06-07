@@ -1,11 +1,11 @@
 import { getUsers } from '../../api/api'
 
-const FOLLOW_HOME_USERS = 'FOLLOW_HOME_USERS';
-const UNFOLLOW_HOME_USERS = 'UNFOLLOW_HOME_USERS';
-const SET_HOME_USERS = 'SET_HOME_USERS';
-const SET_TOTAL_HOME_USERS_COUNT = 'SET_TOTAL_HOME_USERS_COUNT';
-const SET_HOM_CURRENT_PAGE = 'SET_HOM_CURRENT_PAGE';
-const TOGGLE_HOME_IS_FETCHING = 'TOGGLE_HOME_IS_FETCHING';
+const FOLLOW_HOME_USERS = 'git_react/homeFOLLOW_HOME_USERS';
+const UNFOLLOW_HOME_USERS = 'git_react/homeUNFOLLOW_HOME_USERS';
+const SET_HOME_USERS = 'git_react/homeSET_HOME_USERS';
+const SET_TOTAL_HOME_USERS_COUNT = 'git_react/homeSET_TOTAL_HOME_USERS_COUNT';
+const SET_HOM_CURRENT_PAGE = 'git_react/homeSET_HOM_CURRENT_PAGE';
+const TOGGLE_HOME_IS_FETCHING = 'git_react/homeTOGGLE_HOME_IS_FETCHING';
 
 let initialState = {
 	homeUsers: [],
@@ -105,14 +105,12 @@ export const toggleHomeIsFetching = (isFetching) => {
 }
 
 export const getHomeUsersThunkCreator = (currentPage, pageSize) => {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(toggleHomeIsFetching(true));
-		getUsers(currentPage, pageSize).then(data => {
-			dispatch(setHomeUsers(data.items))
-			dispatch(setTotalHomeUsersCount(data.totalCount))
-			dispatch(toggleHomeIsFetching(false))
-			console.log(data);
-		})
+		let data = await getUsers(currentPage, pageSize)
+		dispatch(setHomeUsers(data.items))
+		dispatch(setTotalHomeUsersCount(data.totalCount))
+		dispatch(toggleHomeIsFetching(false))
 	}
 }
 

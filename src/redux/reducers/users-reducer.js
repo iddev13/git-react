@@ -1,11 +1,12 @@
-import { getUsers } from "../../api/api"
+import { getUsers } from "../../api/api";
+import { updateObjectInArray } from "../../utils/object-helpers";
 
-const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET-USERS';
-const SET_CURRENT_PAGE = 'SET-SET_CURRENT_PAGE';
-const SET_TOTAL_USERS_COUNT = 'SET-SET_TOTAL_USERS_COUNT';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const FOLLOW = 'git_react/users/FOLLOW';
+const UNFOLLOW = 'git_react/users/UNFOLLOW';
+const SET_USERS = 'git_react/users/SET-USERS';
+const SET_CURRENT_PAGE = 'git_react/users/SET-SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'git_react/users/SET-SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_FETCHING = 'git_react/users/TOGGLE_IS_FETCHING';
 
 let initialState = {
 	users: [],
@@ -20,24 +21,24 @@ const usersReducer = (state = initialState, action) => {
 		case FOLLOW:
 			return {
 				...state,
-				// users: [...state.users]
-				users: state.users.map((elem) => {
-					if (elem.id === action.userId) {
-						return { ...elem, followed: true }
-					}
-					return elem;
-				})
+				users: updateObjectInArray(state.users, action.userId, "id", { followed: true })
+				// users: state.users.map((elem) => {
+				// 	if (elem.id === action.userId) {
+				// 		return { ...elem, followed: true }
+				// 	}
+				// 	return elem;
+				// })
 			}
 		case UNFOLLOW:
 			return {
 				...state,
-				// users: [...state.users]
-				users: state.users.map((elem) => {
-					if (elem.id === action.userId) {
-						return { ...elem, followed: false }
-					}
-					return elem;
-				})
+				users: updateObjectInArray(state.users, action.userId, "id", { followed: false })
+				// users: state.users.map((elem) => {
+				// 	if (elem.id === action.userId) {
+				// 		return { ...elem, followed: false }
+				// 	}
+				// 	return elem;
+				// })
 			}
 		case SET_USERS:
 			return {
@@ -110,15 +111,13 @@ export const toggleIsFetching = (isFetching) => {
 }
 
 export const getUsersThunkCreator = (currentPage, pageSize) => {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(toggleIsFetching(true));
-		getUsers(currentPage, pageSize).then(data => {
-			// debugger;
-			dispatch(toggleIsFetching(false));
-			console.log(data);
-			dispatch(setUsers(data.items));
-			dispatch(setTotalUsersCount(data.totalCount));
-		});
+		let data = await getUsers(currentPage, pageSize)
+		dispatch(toggleIsFetching(false));
+		console.log(data);
+		dispatch(setUsers(data.items));
+		dispatch(setTotalUsersCount(data.totalCount));
 	}
 }
 

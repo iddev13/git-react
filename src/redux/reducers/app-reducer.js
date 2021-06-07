@@ -1,6 +1,6 @@
 import { setAuthUserData } from './auth-reducer';
 
-const INITIALIZED_SUCCESS = 'SET_INITIALIZED';
+const INITIALIZED_SUCCESS = 'git_react/app/SET_INITIALIZED';
 
 let initialState = {
 	initialized: false

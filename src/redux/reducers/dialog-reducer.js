@@ -1,4 +1,4 @@
-const DIALOG_ADD = 'DIALOG_ADD';
+const DIALOG_ADD = 'git_react/dialog/DIALOG_ADD';
 
 let initialState = {
 	dialogPosts: [

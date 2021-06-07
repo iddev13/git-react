@@ -1,12 +1,12 @@
 import { getBlogUsers } from "../../api/api";
 
-const SET_BLOG_USERS = 'SET_BLOG_USERS';
-const BLOG_CURRENT_PAGE = 'BLOG_CURRENT_PAGE';
-const BLOG_FOLLOW = 'BLOG_FOLLOW';
-const BLOG_UNFOLLOW = 'BLOG_UNFOLLOW';
-const TOGGLE_BLOG_IS_FETCHING = 'TOGGLE_BLOG_IS_FETCHING';
-const SET_BLOG_CURRENT_PAGE = 'SET_BLOG_CURRENT_PAGE';
-const SET_TOTAL_BLOG_USERS_COUNT = 'SET_TOTAL_BLOG_USERS_COUNT';
+const SET_BLOG_USERS = 'git_react/blog/SET_BLOG_USERS';
+const BLOG_CURRENT_PAGE = 'git_react/blog/BLOG_CURRENT_PAGE';
+const BLOG_FOLLOW = 'git_react/blog/BLOG_FOLLOW';
+const BLOG_UNFOLLOW = 'git_react/blog/BLOG_UNFOLLOW';
+const TOGGLE_BLOG_IS_FETCHING = 'git_react/blog/TOGGLE_BLOG_IS_FETCHING';
+const SET_BLOG_CURRENT_PAGE = 'git_react/blog/SET_BLOG_CURRENT_PAGE';
+const SET_TOTAL_BLOG_USERS_COUNT = 'git_react/blog/SET_TOTAL_BLOG_USERS_COUNT';
 
 let initialState = {
 	blogUsers: [],
@@ -118,14 +118,12 @@ export const setBlogCurrentPage = (currentPage) => {
 }
 
 export const getBlogUsersThunkCreator = (currentPage, pageSize) => {
-	return (dispatch) => {
+	return async (dispatch) => {
 		dispatch(toggleBlogIsFetching(true));
-		getBlogUsers(currentPage, pageSize)
-			.then(data => {
-				dispatch(setBlogUsers(data.items))
-				dispatch(toggleBlogIsFetching(false))
-				dispatch(setTotalBlogUsersCount(data.totalCount))
-			})
+		let data = await getBlogUsers(currentPage, pageSize)
+		dispatch(setBlogUsers(data.items))
+		dispatch(toggleBlogIsFetching(false))
+		dispatch(setTotalBlogUsersCount(data.totalCount))
 	}
 }
 

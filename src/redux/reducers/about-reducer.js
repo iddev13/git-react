@@ -1,6 +1,6 @@
 
-const ADD_INPUT = 'ADD_INPUT';
-const REMOVE_POST = 'REMOVE_POST';
+const ADD_INPUT = 'git_react/about/about-ADD_INPUT';
+const REMOVE_POST = 'git_react/about/REMOVE_POST';
 
 let initialState = {
 	aboutPosts: [
@@ -23,7 +23,7 @@ const aboutReducer = (state = initialState, action) => {
 		case REMOVE_POST:
 			return {
 				...state,
-				aboutPosts: state.aboutPosts.filter(elem => elem.id != action.userId)
+				aboutPosts: state.aboutPosts.filter(elem => elem.id !== action.userId)
 			}
 		default:
 			return state;

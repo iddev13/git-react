@@ -1,4 +1,4 @@
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_USER_PROFILE = 'git_react/profile/SET_USER_PROFILE';
 
 let initialState = {
 	profile: null

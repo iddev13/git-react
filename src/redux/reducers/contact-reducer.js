@@ -1,9 +1,9 @@
-const CONTACT_FOLLOW = 'CONTACT_FOLLOW';
-const CONTACT_UNFOLLOW = 'CONTACT_UNFOLLOW';
-const SET_CONTACT_USERS = 'SET_CONTACT_USERS';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const CONTACT_FOLLOW = 'git_react/contact/CONTACT_FOLLOW';
+const CONTACT_UNFOLLOW = 'git_react/contact/CONTACT_UNFOLLOW';
+const SET_CONTACT_USERS = 'git_react/contact/SET_CONTACT_USERS';
+const SET_TOTAL_USERS_COUNT = 'git_react/contact/SET_TOTAL_USERS_COUNT';
+const SET_CURRENT_PAGE = 'git_react/contact/SET_CURRENT_PAGE';
+const TOGGLE_IS_FETCHING = 'git_react/contact/TOGGLE_IS_FETCHING';
 
 let initialState = {
 	contactUsers: [],
