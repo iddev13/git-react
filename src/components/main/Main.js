@@ -1,10 +1,10 @@
-
+import React, { Suspense } from 'react';
 import { Route } from 'react-router';
+import './Main.css';
 import AboutContainer from '../pages/about/AboutContainer';
 import PortfolioContainer from '../pages/portfilio/PortfolioContainer';
 import UsersContainer from '../pages/users/UsersContainer';
-import ProfileContainer from '../pages/profile/ProfileContainer';
-import './Main.css';
+// import ProfileContainer from '../pages/profile/ProfileContainer';
 import PostContainer from '../pages/post/PostContainer';
 import ContactContainer from '../pages/contact/ContactContainer';
 import HomeContainer from '../pages/home/HomeContainer';
@@ -12,6 +12,8 @@ import Login from '../pages/login/Login';
 import MessageContainer from '../pages/message/MessageContainer';
 import BlogContainer from '../pages/blog/BlogContainer';
 import DialogContainer from '../pages/dialog/DialogContainer';
+
+const ProfileContainer = React.lazy(() => import('../pages/profile/ProfileContainer'));
 
 const Main = () => {
 	return (
@@ -27,7 +29,11 @@ const Main = () => {
         			</a>
 				<Route exact path="/" render={() => <HomeContainer />} />
 				<Route path="/about" render={() => <AboutContainer />} />
-				<Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+				<Route path="/profile/:userId?" render={() => {
+					return <Suspense fallback={<div>Loading...</div>}>
+						<ProfileContainer />
+					</Suspense>
+				}} />
 				<Route path="/users" render={() => <UsersContainer />} />
 				<Route path="/message" render={() => <MessageContainer />} />
 				<Route path="/portfolio" render={() => <PortfolioContainer />} />
