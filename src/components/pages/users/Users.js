@@ -17,7 +17,6 @@ const Users = (props) => {
 		<div className="users">
 			<h2>Users</h2>
 			<div className="users__nav">
-				<button onClick={() => { console.log(props) }}>Push</button>
 				{/* {
 					pages.map((elem) => {
 						return <span className={props.currentPage === elem ? 'selectet-page' : ''} onClick={(event) => { props.onPageChanged(elem) }} key={elem}>{elem}</span>
@@ -29,6 +28,7 @@ const Users = (props) => {
 					totalUsersCount={props.totalUsersCount}
 					pageSize={props.pageSize}
 					onPageChanged={props.onPageChanged}
+					portionSize={props.portionSize}
 				/>
 			</div>
 			<div>

@@ -1,10 +1,11 @@
 import React from 'react';
 
-class ProfileStatusContainer extends React.Component {
+class ProfileStatusClass extends React.Component {
 
 	state = {
 		editMode: false
 	}
+
 
 	activateEditMode() {
 		this.setState({
@@ -26,11 +27,10 @@ class ProfileStatusContainer extends React.Component {
 					? <div><span onDoubleClick={this.activateEditMode.bind(this)}>span span span span span</span></div>
 					: <div><input autoFocus={true} onBlur={this.deactivateEditMode.bind(this)} type="text" placeholder="Some text..." /></div>
 				}
-
 				</div>
 			</div >
 		)
 	}
 }
 
-export default ProfileStatusContainer;
+export default ProfileStatusClass;

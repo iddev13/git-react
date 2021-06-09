@@ -1,3 +1,32 @@
+.pagination {
+}
+
+.pagination button {
+	padding: 10px 17px;
+	background-color: greenyellow;
+	border-radius: 40px;
+	font-size: 17px;
+	font-weight: 700;
+	border: 1px solid #fff;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+}
+
+.pagination button:hover {
+	background-color: rgb(10, 245, 10);
+}
+
+.pagination button:active {
+	border-color: transparent;
+	background-color: rgb(15, 228, 15);
+}
+
+.btnPrev {
+	margin-right: 10px;
+}
+.btnNext {
+	margin-left: 10px;
+}
 
 .selectet-page {
 	font-weight: 700;

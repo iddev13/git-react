@@ -1,7 +1,7 @@
 import './Post.css';
 import postUserPhoto from '../../../assets/images/user.png';
 import { NavLink } from 'react-router-dom';
-import ProfileStatusContainer from '../../profile-status-class/ProfileStatusContainer';
+import ProfileStatusContainer from '../../profile-status-class/ProfileStatusClass';
 
 
 const Post = (props) => {

@@ -24,3 +24,7 @@ export const getCurrentPage = (state) => {
 export const getIsFetching = (state) => {
 	return state.usersPage.isFetching
 }
+
+export const getPortionSize = (state) => {
+	return state.usersPage.portionSize
+}

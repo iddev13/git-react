@@ -2,6 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { required, maxLengthCreator } from '../../../utils/validators/validators';
 import { Textarea } from '../../common/form-controls/FormControls';
+import ProfileStatusClass from '../../profile-status-class/ProfileStatusClass';
 import './About.css';
 
 const maxSymbolLength = maxLengthCreator(10)
@@ -30,6 +31,7 @@ const AboutForm = (props) => {
 				</div>
 			</form>
 			<button onClick={propsCheck}>PushProps</button>
+			<ProfileStatusClass />
 		</>
 	)
 }

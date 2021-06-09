@@ -3,7 +3,7 @@ import Users from './Users';
 import { connect } from "react-redux";
 import { follow, setCurrentPage, unfollow, getUsersThunkCreator } from "../../../redux/reducers/users-reducer";
 import Preloader from '../../common/preloader/Preloader';
-import { getCurrentPage, getIsFetching, getPageSize, getTotalUsersCount, getUsersSuper } from '../../../redux/selectors/user-selectors';
+import { getCurrentPage, getIsFetching, getPageSize, getPortionSize, getTotalUsersCount, getUsersSuper } from '../../../redux/selectors/user-selectors';
 
 class UsersAPIComponent extends React.Component {
 
@@ -29,6 +29,7 @@ class UsersAPIComponent extends React.Component {
 					unfollow={this.props.unfollow}
 					follow={this.props.follow}
 					isFetching={this.props.isFetching}
+					portionSize={this.props.portionSize}
 				/>
 			</>
 		)
@@ -42,7 +43,8 @@ let mapStateToProps = (state) => {
 		pageSize: getPageSize(state),
 		totalUsersCount: getTotalUsersCount(state),
 		currentPage: getCurrentPage(state),
-		isFetching: getIsFetching(state)
+		isFetching: getIsFetching(state),
+		portionSize: getPortionSize(state)
 	}
 }
 
