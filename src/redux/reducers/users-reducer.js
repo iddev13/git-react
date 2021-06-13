@@ -113,12 +113,17 @@ export const toggleIsFetching = (isFetching) => {
 
 export const getUsersThunkCreator = (currentPage, pageSize) => {
 	return async (dispatch) => {
-		dispatch(toggleIsFetching(true));
-		let data = await getUsers(currentPage, pageSize)
-		dispatch(toggleIsFetching(false));
-		console.log(data);
-		dispatch(setUsers(data.items));
-		dispatch(setTotalUsersCount(data.totalCount));
+		try {
+			dispatch(toggleIsFetching(true));
+			let data = await getUsers(currentPage, pageSize)
+			dispatch(toggleIsFetching(false));
+			console.log(data);
+			dispatch(setUsers(data.items));
+			dispatch(setTotalUsersCount(data.totalCount));
+		} catch (error) {
+			console.log('Error user-reducer: ' + error);
+		}
+
 	}
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { setUserProfile } from '../../../redux/reducers/profile-reducer';
+import { setUserProfile, savePhotoSuccess, saveProfile } from '../../../redux/reducers/profile-reducer';
 import Profile from "./Profile";
 import * as axios from 'axios';
 import { withRouter } from 'react-router';
@@ -9,6 +9,7 @@ import { compose } from 'redux';
 
 class ProfileAPIComponent extends React.Component {
 	componentDidMount() {
+		// debugger;
 		let userId = this.props.match.params.userId;
 
 		if (!userId) {
@@ -23,10 +24,9 @@ class ProfileAPIComponent extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
-				<Profile {...this.props} profile={this.props.profile} />
+				<Profile {...this.props} profile={this.props.profile} isOwner={!this.props.match.params.userId} savePhotoSuccess={this.props.savePhotoSuccess} />
 			</div>
 		)
 	}
@@ -47,7 +47,11 @@ let mapStateToProps = (state) => {
 // })(WithUrlDataContainerComponent);
 
 export default compose(
-	connect(mapStateToProps, { setUserProfile }),
+	connect(mapStateToProps, { 
+		setUserProfile,
+		 savePhotoSuccess,
+		//  saveProfile
+		 }),
 	withRouter,
 	withAuthRedirect
 )(ProfileAPIComponent);

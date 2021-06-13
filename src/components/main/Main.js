@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Route } from 'react-router';
+import { Switch, Route } from 'react-router';
 import './Main.css';
 import AboutContainer from '../pages/about/AboutContainer';
 import PortfolioContainer from '../pages/portfilio/PortfolioContainer';
@@ -26,22 +26,26 @@ const Main = () => {
 					rel="noopener noreferrer"
 				>
 					Learn React
-        			</a>
-				<Route exact path="/" render={() => <HomeContainer />} />
-				<Route path="/about" render={() => <AboutContainer />} />
-				<Route path="/profile/:userId?" render={() => {
-					return <Suspense fallback={<div>Loading...</div>}>
-						<ProfileContainer />
-					</Suspense>
-				}} />
-				<Route path="/users" render={() => <UsersContainer />} />
-				<Route path="/message" render={() => <MessageContainer />} />
-				<Route path="/portfolio" render={() => <PortfolioContainer />} />
-				<Route path="/post" render={() => <PostContainer />} />
-				<Route path="/blog" render={() => <BlogContainer />} />
-				<Route path="/dialog" render={() => <DialogContainer />} />
-				<Route path="/contact" render={() => <ContactContainer />} />
-				<Route path="/login" render={() => <Login />} />
+				</a>
+				<Switch>
+					<Route exact path="/" render={() => <HomeContainer />} />
+					<Route path="/about" render={() => <AboutContainer />} />
+					<Route path="/profile/:userId?" render={() => {
+						return <Suspense fallback={<div>Loading...</div>}>
+							<ProfileContainer />
+						</Suspense>
+					}} />
+					<Route path="/users" render={() => <UsersContainer />} />
+					<Route path="/message" render={() => <MessageContainer />} />
+					<Route path="/portfolio" render={() => <PortfolioContainer />} />
+					<Route path="/post" render={() => <PostContainer />} />
+					<Route path="/blog" render={() => <BlogContainer />} />
+					<Route path="/dialog" render={() => <DialogContainer />} />
+					<Route path="/contact" render={() => <ContactContainer />} />
+					<Route path="/login" render={() => <Login />} />
+					<Route path="*" render={() => <div>404 NOT FOUND</div>} />
+				</Switch>
+
 			</div>
 		</main>
 	)
